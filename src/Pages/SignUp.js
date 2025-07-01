@@ -98,7 +98,7 @@ function SignUp() {
                   </div>
                   <div className="col-md-6">
                     <label>Password</label>
-                    <input type="password" placeholder="Password" value={userDetails.password} onChange={(e)=>{handleChange2(e,'password'),handleChange(e,'password')}} />
+                    <input type="password" placeholder="Password" value={userDetails.password} onChange={(e)=>{handleChange2(e,'password'); handleChange(e,'password');}} />
                   </div>
                   <div className="col-md-6">
                     <label>Confirm Password</label>

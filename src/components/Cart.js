@@ -65,11 +65,12 @@ function Cart() {
 
   const total = () => {
     let price = 0;
-    getData.map((ele, k) => {
-      price = ele.price * ele.quantity + price;
+    getData.map((ele) => {
+      price += ele.price * ele.quantity;
     });
-    setPrice(price.toFixed(2));
+    setPrice(price); // ❌ Don't call toFixed here
   };
+
 
   useEffect(() => {
     total();
@@ -267,12 +268,8 @@ function Cart() {
                       <div className="cart-page-total">
                         <h2>Cart totals</h2>
                         <ul>
-                          <li>
-                            Subtotal <span>₹{price.toFixed(2)}</span>
-                          </li>
-                          <li>
-                            Total <span>₹{price.toFixed(2)}</span>
-                          </li>
+                          <li>Subtotal <span>₹{price.toFixed(2)}</span></li>
+                          <li>Total <span>₹{price.toFixed(2)}</span></li>
                         </ul>
                         <Link to={"/checkout"}>
                         <input
